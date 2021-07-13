@@ -18,10 +18,6 @@ class _BtmtabsState extends State<Btmtabs> {
     return Container(
         decoration: BoxDecoration(
             color: Colors.blueGrey[900],
-            // borderRadius: BorderRadius.only(
-            //   topLeft: Radius.circular(12.0),
-            //   topRight: Radius.circular(12.0),
-            // ),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.05),
