@@ -15,25 +15,6 @@ class _HomeState extends State<Login> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          // Container(
-          //   height: 200,
-          //   child: Stack(
-          //     children: <Widget>[
-          //       Positioned(
-          //           child: FadeAnimation(
-          //         1,
-          //         Container(
-          //           decoration: BoxDecoration(
-          //             image: DecorationImage(
-          //               fit: BoxFit.cover,
-          //               image: AssetImage("lib/assets/images/1.png"),
-          //             ),
-          //           ),
-          //         ),
-          //       ))
-          //     ],
-          //   ),
-          // ),
           SizedBox(
             height: 200,
           ),

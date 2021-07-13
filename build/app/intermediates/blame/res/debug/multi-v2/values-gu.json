@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/harsh/Documents/flutter projects/mockapp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml",
+            "outputFile": "/home/harsh/Documents/IoTA/event-management-frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml",
             "map": [
                 {
                     "source": "/home/harsh/.gradle/caches/transforms-2/files-2.1/2c8f672ff879eb46d5b97b42e8a106cc/core-1.1.0/res/values-gu/values-gu.xml",

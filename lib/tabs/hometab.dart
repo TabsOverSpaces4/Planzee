@@ -65,16 +65,7 @@ class HomeTab extends StatelessWidget {
         )
 
             ]),
-            
-           
-      // SizedBox(height: deviceWidth * .55),
-      //  FloatingActionButton(
-      //   backgroundColor: Colors.pink,
-      //   onPressed: () { 
-      //     Navigator.pushNamed(context, '/about');
-      //    },
-      //   child: Icon(Icons.info_outline)
-      //       )
+
         ]
         
       ),

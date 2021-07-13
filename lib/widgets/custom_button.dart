@@ -17,9 +17,9 @@ class Custombtn extends StatelessWidget {
       child: Container(
         height: 65.0,
         decoration: BoxDecoration(
-            color: _outlineBtn ? Colors.transparent : Colors.black,
+            color: _outlineBtn ? Colors.transparent : Colors.purple[700],
             border: Border.all(
-              color: Colors.black,
+              color: Colors.white,
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12.0)),
@@ -36,7 +36,7 @@ class Custombtn extends StatelessWidget {
                   text ?? "button's label",
                   style: TextStyle(
                     fontSize: 16.0,
-                    color: _outlineBtn ? Colors.black : Colors.white,
+                    color: _outlineBtn ? Colors.white : Colors.white,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
