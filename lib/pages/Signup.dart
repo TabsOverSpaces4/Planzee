@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../widgets/custom_button.dart';
+import '../widgets/custom_input.dart';
+
 void main() {
   runApp(MyApp());
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,138 +26,108 @@ class SignUp extends StatelessWidget {
     final deviceWidth = MediaQuery.of(context).size.height;
     final deviceHorizontal = MediaQuery.of(context).size.width;
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.blueGrey[900],
-        body: ListView(children: [
-          Stack(
-            children: [
-              Container(
-                  height: deviceWidth * .4,
-                  width: double.infinity,
-                  color: Colors.purple[700],
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: deviceWidth * .08),
-                        height: deviceWidth * .14,
-                        width: deviceWidth * .14,
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.white,
-                            image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage("lib/assets/images/logo.png"),)
-                            ),
-                            
-                      ),
-                      SizedBox(height: deviceWidth * .01),
-                      Text(
-                        "Sign Up",
-                        style: TextStyle(
-                            fontSize: deviceWidth / 32, color: Colors.white),
-                      ),
-                    ],
-                  )),
-              
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: deviceWidth * .32, left: deviceWidth * .02),
-                    height: deviceWidth * .4,
-                    width: MediaQuery.of(context).size.width * .9,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(8),
+        child: Scaffold(
+            backgroundColor: Colors.blueGrey[900],
+            body: ListView(children: [
+              Column(children: [
+                Container(
+                    height: deviceWidth * .32,
+                    width: double.infinity,
+                    color: Colors.purple[700],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: deviceWidth * .08),
+                          height: deviceWidth * .14,
+                          width: deviceWidth * .14,
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Colors.white),
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage("lib/assets/images/logo.png"),
+                              )),
+                        ),
+                        SizedBox(height: deviceWidth * .01),
+                        Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              fontSize: deviceWidth / 32, color: Colors.white),
+                        ),
+                      ],
+                    )),
+                SizedBox(height: deviceWidth * .02),
+                Container(
+                    child: Column(
+                  children: [
+                    CustomInpt(
+                      hintText: "Full Name",
+                      onChanged: (value) {
+                        //_registerEmail = value;
+                      },
+                      onSubmitted: (value) {
+                        // _passwordFocusNode.requestFocus();
+                      },
+                      textInputAction: TextInputAction.next,
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: deviceHorizontal * .1,
-                          right: deviceHorizontal * .1,
-                          top: deviceWidth * .025),
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            decoration: InputDecoration(
-                                labelText: "Full Name",
-                                hintText: "Harsh Gupta",
-                                suffixIcon: Icon(Icons.person_outline),
-                                ),
-                          ),
-                          SizedBox(height: deviceWidth * .01),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                labelText: "EMail",
-                                hintText: "example@gmail.com",
-                                suffixIcon: Icon(Icons.email_outlined),
-                                ),
-                          ),
-                          SizedBox(height: deviceWidth * .01),
-                          TextFormField(obscureText: true,
-                            decoration: InputDecoration(
-                                labelText: "Password",
-                              
-                                suffixIcon: Icon(Icons.remove_red_eye_outlined)),
-                          ),
-                          SizedBox(height: deviceWidth * .01),
-                          TextFormField(obscureText: true,
-                            decoration: InputDecoration(
-                                labelText: "Confirm Password",
-                              
-                                suffixIcon: Icon(Icons.remove_red_eye_outlined)),
-                          ),
-                          SizedBox(height: deviceWidth * .01),
-                          
-                        ],
-                      ),
+                    SizedBox(height: deviceWidth * .01),
+                    CustomInpt(
+                      hintText: "Email",
+                      onChanged: (value) {
+                        //_registerEmail = value;
+                      },
+                      onSubmitted: (value) {
+                        // _passwordFocusNode.requestFocus();
+                      },
+                      textInputAction: TextInputAction.next,
                     ),
-                  ),
-                
-              
-              Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: deviceWidth * .69,
-                        left: deviceHorizontal * .2,
-                        right: deviceHorizontal * .2),
-                    height: deviceWidth * .06,
-                    width: deviceHorizontal * .8,
-                    child: RaisedButton(
+                    SizedBox(height: deviceWidth * .01),
+                    CustomInpt(
+                      hintText: "Password",
+                      onChanged: (value) {
+                        //_registerPassword = value;
+                      },
+                      //focusNode: _passwordFocusNode,
+                      isPasswordField: true,
+                      onSubmitted: (value) {
+                        //_submitForm();
+                      },
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    CustomInpt(
+                      hintText: "Confirm Password",
+                      onChanged: (value) {
+                        //_registerPassword = value;
+                      },
+                      //focusNode: _passwordFocusNode,
+                      isPasswordField: true,
+                      onSubmitted: (value) {
+                        //_submitForm();
+                      },
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    Custombtn(
+                      text: "Create Account",
                       onPressed: () {
                         Navigator.pushNamed(context, '/profile');
+                        // _submitForm();
                       },
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      color: Colors.purple[700],
+
+                      // isLoading: _registerformLoading,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: deviceWidth * .01),
-              
-              Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(
-                    top: deviceWidth * .76,
-                  ),
-                  child: TextButton(
-                    child: Text(
-                      "Already have an account? Sign In",
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/signin');
-                    },
-                  )),
-            ],
-          ),
-        ]),
-      ),
-    );
+                    SizedBox(height: deviceWidth * .01),
+                    Custombtn(
+                      text: "Already have an account? Sign In",
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/signin');
+                      },
+                      outlineBtn: true,
+                    )
+                  ],
+                ))
+              ])
+            ])));
   }
 }

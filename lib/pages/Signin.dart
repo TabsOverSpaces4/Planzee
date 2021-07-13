@@ -30,7 +30,7 @@ class SignIn extends StatelessWidget {
         child: Scaffold(
             backgroundColor: Colors.blueGrey[900],
             body: ListView(children: [
-              Stack(children: [
+              Column(children: [
                 Container(
                     height: deviceWidth * .4,
                     width: double.infinity,
@@ -59,6 +59,7 @@ class SignIn extends StatelessWidget {
                         ),
                       ],
                     )),
+                    SizedBox(height: deviceWidth * .01),
                 Container(
                   child: Column(
                     children: [
