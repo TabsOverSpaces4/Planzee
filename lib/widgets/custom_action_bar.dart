@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mockapp/pages/about.dart';
+import 'package:planzee/pages/about.dart';
+
 
 class CustomActionBar extends StatelessWidget {
   final String title;

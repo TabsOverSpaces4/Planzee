@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mockapp/tabs/hometab.dart';
-import 'package:mockapp/widgets/bottomtabs.dart';
+import 'package:planzee/tabs/hometab.dart';
+import 'package:planzee/widgets/bottomtabs.dart';
 
 class Homepage extends StatefulWidget {
   @override

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mockapp/animation/try_fade.dart';
+import 'package:planzee/animation/try_fade.dart';
 
-class Login extends StatefulWidget {
+class LSOptions extends StatefulWidget {
+
+
   @override
-  _HomeState createState() => _HomeState();
+  _LSOptionsState createState() => _LSOptionsState();
 }
 
-class _HomeState extends State<Login> {
+class _LSOptionsState extends State<LSOptions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

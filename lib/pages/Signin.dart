@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../widgets/custom_button.dart';
-import '../widgets/custom_input.dart';
-import 'Signup.dart';
+import 'package:planzee/pages/Signup.dart';
+import 'package:planzee/widgets/custom_button.dart';
+import 'package:planzee/widgets/custom_input.dart';
 
 void main() {
   runApp(MyApp());

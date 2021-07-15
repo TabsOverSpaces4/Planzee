@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animations/loading_animations.dart';
-import 'package:mockapp/animation/try_fade.dart';
+import 'package:planzee/animation/try_fade.dart';
+
 
 
 class Loading extends StatefulWidget {

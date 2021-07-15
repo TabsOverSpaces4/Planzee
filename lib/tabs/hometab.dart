@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mockapp/widgets/custom_action_bar.dart';
+import 'package:planzee/widgets/custom_action_bar.dart';
 
 void main() {
   runApp(MyApp());
