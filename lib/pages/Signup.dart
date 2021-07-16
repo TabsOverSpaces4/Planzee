@@ -1,26 +1,99 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_input.dart';
 
-void main() {
-  runApp(MyApp());
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-}
-
-class MyApp extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SignUp(),
-    );
-  }
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class SignUp extends StatelessWidget {
+class _SignupPageState extends State<SignupPage> {
+  @override
+  Future<void> _alertDialogBuilder(String error) async {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Error!"),
+            content: Container(
+              child: Text(error),
+            ),
+            actions: [
+              TextButton(
+                child: Text("Close"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          );
+        });
+  }
+
+  void _submitForm() async {
+    // Set the form to loading state
+    setState(() {
+      _registerformLoading = true;
+    });
+
+    String _createAccountFeedback = await _createAccount();
+    if (_createAccountFeedback != null) {
+      _alertDialogBuilder(_createAccountFeedback);
+
+      setState(() {
+        _registerformLoading = false;
+      });
+    } else {
+      //Sign in was successful and the user was routed towards the homescreen using pop funciton
+      Navigator.pop(context);
+    }
+  }
+
+  // Create a new user account
+  Future<String> _createAccount() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _registerEmail, password: _registerPassword);
+      return null;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        return 'The password provided is too weak.';
+      } else if (e.code == 'email-already-in-use') {
+        return 'The account already exists for that email.';
+      }
+      return e.message;
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  //Default Form Loading State
+  bool _registerformLoading = false;
+
+  //Form input field Values
+  String _registerEmail = "";
+  String _registerPassword = "";
+
+  // Focus Node for the input fields
+  FocusNode _passwordFocusNode;
+
+  @override
+  void initState() {
+    _passwordFocusNode = FocusNode();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _passwordFocusNode.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.height;
@@ -76,10 +149,10 @@ class SignUp extends StatelessWidget {
                     CustomInpt(
                       hintText: "Email",
                       onChanged: (value) {
-                        //_registerEmail = value;
+                        _registerEmail = value;
                       },
                       onSubmitted: (value) {
-                        // _passwordFocusNode.requestFocus();
+                         _passwordFocusNode.requestFocus();
                       },
                       textInputAction: TextInputAction.next,
                     ),
@@ -87,24 +160,24 @@ class SignUp extends StatelessWidget {
                     CustomInpt(
                       hintText: "Password",
                       onChanged: (value) {
-                        //_registerPassword = value;
+                        _registerPassword = value;
                       },
-                      //focusNode: _passwordFocusNode,
+                      focusNode: _passwordFocusNode,
                       isPasswordField: true,
                       onSubmitted: (value) {
-                        //_submitForm();
+                        _submitForm();
                       },
                     ),
                     SizedBox(height: deviceWidth * .01),
                     CustomInpt(
                       hintText: "Confirm Password",
                       onChanged: (value) {
-                        //_registerPassword = value;
+                        _registerPassword = value;
                       },
-                      //focusNode: _passwordFocusNode,
+                      focusNode: _passwordFocusNode,
                       isPasswordField: true,
                       onSubmitted: (value) {
-                        //_submitForm();
+                        _submitForm();
                       },
                     ),
                     SizedBox(height: deviceWidth * .01),
@@ -112,10 +185,10 @@ class SignUp extends StatelessWidget {
                       text: "Create Account",
                       onPressed: () {
                         Navigator.pushNamed(context, '/profile');
-                        // _submitForm();
+                         _submitForm();
                       },
 
-                      // isLoading: _registerformLoading,
+                       isLoading: _registerformLoading,
                     ),
                     SizedBox(height: deviceWidth * .01),
                     Custombtn(
