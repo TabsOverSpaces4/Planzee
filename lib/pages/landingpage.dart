@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:planzee/pages/Signin.dart';
+import 'package:planzee/pages/LSOptions.dart';
 import 'package:planzee/pages/home.dart';
 
 class Landingpage extends StatelessWidget {
@@ -40,7 +40,7 @@ class Landingpage extends StatelessWidget {
                 User _user = streamSnapshot.data;
 
                 if (_user == null) {
-                  return SignIn();
+                  return LSOptions();
                 } else {
                   return Homepage();
                 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Btmtabs extends StatefulWidget {
@@ -53,7 +54,7 @@ class _BtmtabsState extends State<Btmtabs> {
               imagePath: "lib/assets/images/tab_logout.png",
               selected: _selectedTab == 3 ? true : false,
               onPressed: () {
-                
+                FirebaseAuth.instance.signOut();
               },
             ),
           ],
