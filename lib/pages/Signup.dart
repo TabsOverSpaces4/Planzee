@@ -159,14 +159,7 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(height: deviceWidth * .01),
                     CustomInpt(
                       hintText: "Password",
-                      onChanged: (value) {
-                        _registerPassword = value;
-                      },
-                      focusNode: _passwordFocusNode,
-                      isPasswordField: true,
-                      onSubmitted: (value) {
-                        _submitForm();
-                      },
+                       isPasswordField: true, 
                     ),
                     SizedBox(height: deviceWidth * .01),
                     CustomInpt(
@@ -184,12 +177,11 @@ class _SignupPageState extends State<SignupPage> {
                     Custombtn(
                       text: "Create Account",
                       onPressed: () {
-                        Navigator.pushNamed(context, '/profile');
-                         _submitForm();
-                      },
-
-                       isLoading: _registerformLoading,
-                    ),
+                  _submitForm();
+                },
+                outlineBtn: false,
+                isLoading: _registerformLoading,
+              ),
                     SizedBox(height: deviceWidth * .01),
                     Custombtn(
                       text: "Already have an account? Sign In",
