@@ -138,10 +138,7 @@ class _SignupPageState extends State<SignupPage> {
                     CustomInpt(
                       hintText: "Full Name",
                       onChanged: (value) {
-                        //_registerEmail = value;
-                      },
-                      onSubmitted: (value) {
-                        // _passwordFocusNode.requestFocus();
+                        
                       },
                       textInputAction: TextInputAction.next,
                     ),

@@ -28,6 +28,7 @@ class _HomepageState extends State<Homepage> {
             },
             children: [
               HomeTab(),
+              // All bottom navbar option tabs here
               // Searchtab(),
               // Savedtab(),
               // Profiletab(),
