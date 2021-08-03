@@ -25,21 +25,21 @@ class HomeTab extends StatelessWidget {
     final deviceHorizontal = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Theme.of(context).accentColor,
         body: ListView(children: [
           Stack(
             children: [
               Container(
-                  height: deviceWidth * .28,
+                  height: deviceWidth * .24,
                   width: double.infinity,
-                  color: Colors.purple[700],
+                  color: Theme.of(context).primaryColor,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: deviceWidth * .08),
-                        height: deviceWidth * .14,
-                        width: deviceWidth * .14,
+                        height: deviceWidth * .10,
+                        width: deviceWidth * .10,
                         decoration: BoxDecoration(
                             border: Border.all(width: 2, color: Colors.white),
                             borderRadius: BorderRadius.circular(15),

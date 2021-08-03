@@ -104,20 +104,20 @@ class _LoginpageState extends State<SignIn> {
     final deviceHorizontal = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.blueGrey[900],
+            backgroundColor: Theme.of(context).accentColor,
             body: ListView(children: [
               Column(children: [
                 Container(
-                    height: deviceWidth * .4,
+                    height: deviceWidth * .24,
                     width: double.infinity,
-                    color: Colors.purple[700],
+                    color: Theme.of(context).primaryColor,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: deviceWidth * .08),
-                          height: deviceWidth * .14,
-                          width: deviceWidth * .14,
+                          height: deviceWidth * .10,
+                          width: deviceWidth * .10,
                           decoration: BoxDecoration(
                               border: Border.all(width: 2, color: Colors.white),
                               borderRadius: BorderRadius.circular(15),
@@ -135,7 +135,7 @@ class _LoginpageState extends State<SignIn> {
                         ),
                       ],
                     )),
-                    SizedBox(height: deviceWidth * .01),
+                    SizedBox(height: deviceWidth * .09),
                 Container(
                   child: Column(
                     children: [

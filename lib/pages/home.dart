@@ -15,36 +15,36 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       backgroundColor: Colors.purple[700],
         body: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-            child: Expanded(
-          child: PageView(
-            controller: _tabsPageController,
-            onPageChanged: (num) {
-              setState(() {
-                _selectedTab = num;
-              });
-            },
-            children: [
-              HomeTab(),
-              // Searchtab(),
-              // Savedtab(),
-              // Profiletab(),
-            ],
-          ),
-        )),
-        Btmtabs(
-          selectedTab: _selectedTab,
-          tabPressed: (num) {
-            setState(() {
-              _tabsPageController.animateToPage(num,
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.easeOutCubic);
-            });
-          },
-        ),
-      ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+                child: Expanded(
+              child: PageView(
+                controller: _tabsPageController,
+                onPageChanged: (num) {
+                  setState(() {
+                    _selectedTab = num;
+                  });
+                },
+                children: [
+                  HomeTab(),
+                  // Searchtab(),
+                  // Savedtab(),
+                  // Profiletab(),
+                ],
+              ),
+            )),
+            Btmtabs(
+              selectedTab: _selectedTab,
+              tabPressed: (num) {
+                setState(() {
+                  _tabsPageController.animateToPage(num,
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeOutCubic);
+                });
+              },
+            ),
+          ],
+        ));
   }
 }

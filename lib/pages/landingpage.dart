@@ -34,7 +34,7 @@ class Landingpage extends StatelessWidget {
                 );
               }
 
-//User login cheeck to be here
+//User login check to be here
               if (streamSnapshot.connectionState == ConnectionState.active) {
                 //getting the user
                 User _user = streamSnapshot.data;

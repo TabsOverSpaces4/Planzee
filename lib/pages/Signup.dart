@@ -100,20 +100,20 @@ class _SignupPageState extends State<SignupPage> {
     final deviceHorizontal = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.blueGrey[900],
+            backgroundColor: Theme.of(context).accentColor,
             body: ListView(children: [
               Column(children: [
                 Container(
-                    height: deviceWidth * .32,
+                    height: deviceWidth * .24,
                     width: double.infinity,
-                    color: Colors.purple[700],
+                    color: Theme.of(context).primaryColor,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: deviceWidth * .08),
-                          height: deviceWidth * .14,
-                          width: deviceWidth * .14,
+                          margin: EdgeInsets.only(top: deviceWidth * .06),
+                          height: deviceWidth * .10,
+                          width: deviceWidth * .10,
                           decoration: BoxDecoration(
                               border: Border.all(width: 2, color: Colors.white),
                               borderRadius: BorderRadius.circular(15),
@@ -131,76 +131,77 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ],
                     )),
-                SizedBox(height: deviceWidth * .02),
+                SizedBox(height: deviceWidth * .08),
                 Container(
-                    child: Column(
-                  children: [
-                    CustomInpt(
-                      hintText: "Full Name",
-                      onChanged: (value) {
-                        //_registerEmail = value;
-                      },
-                      onSubmitted: (value) {
-                        // _passwordFocusNode.requestFocus();
-                      },
-                      textInputAction: TextInputAction.next,
-                    ),
-                    SizedBox(height: deviceWidth * .01),
-                    CustomInpt(
-                      hintText: "Email",
-                      onChanged: (value) {
-                        _registerEmail = value;
-                      },
-                      onSubmitted: (value) {
-                         _passwordFocusNode.requestFocus();
-                      },
-                      textInputAction: TextInputAction.next,
-                    ),
-                    SizedBox(height: deviceWidth * .01),
-                    CustomInpt(
-                      hintText: "Password",
-                      onChanged: (value) {
-                        _registerPassword = value;
-                      },
-                      focusNode: _passwordFocusNode,
-                      isPasswordField: true,
-                      onSubmitted: (value) {
-                        _submitForm();
-                      },
-                    ),
-                    SizedBox(height: deviceWidth * .01),
-                    CustomInpt(
-                      hintText: "Confirm Password",
-                      onChanged: (value) {
-                        _registerPassword = value;
-                      },
-                      focusNode: _passwordFocusNode,
-                      isPasswordField: true,
-                      onSubmitted: (value) {
-                        _submitForm();
-                      },
-                    ),
-                    SizedBox(height: deviceWidth * .01),
-                    Custombtn(
-                      text: "Create Account",
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/profile');
-                         _submitForm();
-                      },
 
-                       isLoading: _registerformLoading,
-                    ),
-                    SizedBox(height: deviceWidth * .01),
-                    Custombtn(
-                      text: "Already have an account? Sign In",
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/signin');
-                      },
-                      outlineBtn: true,
-                    )
-                  ],
-                ))
-              ])
+                    child: Column(
+                    children: [
+                      CustomInpt(
+                        hintText: "Full Name",
+
+                        onChanged: (value) {
+                          //_registerEmail = value;
+                        },
+                        onSubmitted: (value) {
+                          // _passwordFocusNode.requestFocus();
+                        },
+                        textInputAction: TextInputAction.next,
+                      ),
+                      SizedBox(height: deviceWidth * .01),
+                      CustomInpt(
+                        hintText: "Email",
+                        onChanged: (value) {
+                          _registerEmail = value;
+                        },
+                        onSubmitted: (value) {
+                           _passwordFocusNode.requestFocus();
+                        },
+                        textInputAction: TextInputAction.next,
+                      ),
+                      SizedBox(height: deviceWidth * .01),
+                      CustomInpt(
+                        hintText: "Password",
+                        onChanged: (value) {
+                          _registerPassword = value;
+                        },
+                        focusNode: _passwordFocusNode,
+                        isPasswordField: true,
+                        onSubmitted: (value) {
+                          _submitForm();
+                        },
+                      ),
+                      SizedBox(height: deviceWidth * .01),
+                      CustomInpt(
+                        hintText: "Confirm Password",
+                        onChanged: (value) {
+                          _registerPassword = value;
+                        },
+                        focusNode: _passwordFocusNode,
+                        isPasswordField: true,
+                        onSubmitted: (value) {
+                          _submitForm();
+                        },
+                      ),
+                      SizedBox(height: deviceWidth * .01),
+                      Custombtn(
+                        text: "Create Account",
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/profile');
+                           _submitForm();
+                        },
+                         isLoading: _registerformLoading,
+                      ),
+                      SizedBox(height: deviceWidth * .01),
+                      Custombtn(
+                        text: "Already have an account? Sign In",
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/signin');
+                        },
+                        outlineBtn: true,
+                      )
+                    ],
+                  ))
+                ])
             ])));
   }
 }

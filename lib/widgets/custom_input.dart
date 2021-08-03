@@ -20,12 +20,13 @@ class CustomInpt extends StatelessWidget {
     bool _isPasswordField = isPasswordField ?? false;
 
     return Container(
+      height: 50,
       margin: EdgeInsets.symmetric(
-        horizontal: 24.0,
-        vertical: 8.0,
+        horizontal: 48.0,
+        vertical: 6.0,
       ),
       decoration: BoxDecoration(
-          color: Color(0xFFF2F2F2), borderRadius: BorderRadius.circular(12.0)),
+          color: Colors.white, borderRadius: BorderRadius.circular(12.0)),
       child: TextField(
         obscureText: _isPasswordField,
         focusNode: focusNode,
@@ -35,9 +36,10 @@ class CustomInpt extends StatelessWidget {
         decoration: InputDecoration(
             border: InputBorder.none,
             hintText: hintText ?? "hint text",
+            hintStyle: TextStyle(color: Theme.of(context).primaryColor),
             contentPadding: EdgeInsets.symmetric(
               horizontal: 18.0,
-              vertical: 24.0,
+              vertical: 12.0,
             )),
         
       ),

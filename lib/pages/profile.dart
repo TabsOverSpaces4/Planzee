@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:planzee/widgets/custom_button.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,21 +25,21 @@ class Profile extends StatelessWidget {
     final deviceHorizontal = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Theme.of(context).accentColor,
         body: ListView(children: [
           Stack(
             children: [
               Container(
-                  height: deviceWidth * .3,
+                  height: deviceWidth * .24,
                   width: double.infinity,
-                  color: Colors.purple[700],
+                  color:Theme.of(context).primaryColor,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: deviceWidth * .08),
-                        height: deviceWidth * .14,
-                        width: deviceWidth * .14,
+                        height: deviceWidth * .10,
+                        width: deviceWidth * .10,
                         decoration: BoxDecoration(
                             border: Border.all(width: 2, color: Colors.white),
                             borderRadius: BorderRadius.circular(15),
@@ -51,7 +52,7 @@ class Profile extends StatelessWidget {
                       ),
                       SizedBox(height: deviceWidth * .01),
                       Text(
-                        "No events",
+                        "Your events",
                         style: TextStyle(
                             fontSize: deviceWidth / 32, color: Colors.white),
                       ),
@@ -60,14 +61,23 @@ class Profile extends StatelessWidget {
 
             ]),
             SizedBox(height: 40.0,),
-            SizedBox(height: 500.0),
-            FloatingActionButton(
-        backgroundColor: Colors.purple[700],
-        onPressed: () { 
-          Navigator.pushNamed(context, '/info');
-         },
-        child: Icon(Icons.add_outlined)
-            )
+            SizedBox(height: 300.0),
+            // FloatingActionButton(
+            //     backgroundColor: Theme.of(context).primaryColor,
+            //     onPressed: () {
+            //       Navigator.pushNamed(context, '/info');
+            //      },
+            //     child: Icon(Icons.add_outlined)
+            //         )
+          Custombtn(
+            text: "Enter using code",
+          ),
+          Custombtn(
+            text: "Create new Event",
+            onPressed: () {
+              Navigator.pushNamed(context, '/info');
+              },
+          )
         ]
       ),)
       

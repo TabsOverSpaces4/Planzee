@@ -11,6 +11,7 @@ import 'package:planzee/pages/profile.dart';
 
 
 void main() => runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/landingpage',
       routes: {
         '/': (context) => Loading(),
@@ -23,7 +24,11 @@ void main() => runApp(MaterialApp(
         '/home': (context) => Homepage(),
         '/about': (context) => About(),
       },
-      
+      theme: ThemeData(
+        primaryColor: Color(0xFF10676a),
+        accentColor: Color(0xFFE9F2F2),
+      )
+
     )
    
     );
