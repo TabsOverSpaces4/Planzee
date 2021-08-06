@@ -133,7 +133,6 @@ class _SignupPageState extends State<SignupPage> {
                     )),
                 SizedBox(height: deviceWidth * .08),
                 Container(
-
                     child: Column(
                     children: [
                       CustomInpt(

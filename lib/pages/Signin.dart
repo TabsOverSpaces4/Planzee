@@ -163,7 +163,7 @@ class _LoginpageState extends State<SignIn> {
                       ),
                       SizedBox(height: deviceWidth * .01),
                       Custombtn(
-                        text: "Login",
+                        text: "Sign In",
                         onPressed: () {
                           _submitForm();
                         },
