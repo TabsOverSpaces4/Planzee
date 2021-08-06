@@ -18,14 +18,15 @@ class _BtmtabsState extends State<Btmtabs> {
     _selectedTab = widget.selectedTab ?? 0;
     return Container(
         decoration: BoxDecoration(
-            color: Colors.blueGrey[900],
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.05),
-                spreadRadius: 1.0,
-                blurRadius: 45.0,
-              )
-            ]),
+            color: Theme.of(context).primaryColor,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Theme.of(context).primaryColor,
+            //     spreadRadius: 1.0,
+            //     blurRadius: 45.0,
+            //   )
+            // ]
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

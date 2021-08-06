@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:planzee/tabs/hometab.dart';
 import 'package:planzee/widgets/bottomtabs.dart';
+import 'package:planzee/tabs/hometab.dart';
+
+
+
 
 class Homepage extends StatefulWidget {
   @override
@@ -10,30 +13,35 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   PageController _tabsPageController;
   int _selectedTab = 0;
+
+
   @override
   Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.height;
+    final deviceHorizontal = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.purple[700],
-        body: Column(
+      backgroundColor: Theme.of(context).accentColor,
+        body:Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
                 child: Expanded(
-              child: PageView(
-                controller: _tabsPageController,
-                onPageChanged: (num) {
-                  setState(() {
-                    _selectedTab = num;
-                  });
-                },
-                children: [
-                  HomeTab(),
-                  // Searchtab(),
-                  // Savedtab(),
-                  // Profiletab(),
-                ],
-              ),
-            )),
+                  child: PageView(
+                    controller: _tabsPageController,
+                    onPageChanged: (num) {
+                      setState(() {
+                        _selectedTab = num;
+                      });
+                    },
+                    children: [
+                      HomeTab(),
+                      // Searchtab(),
+                      // Savedtab(),
+                      // Profiletab(),
+                    ],
+                  ),
+                )),
+
             Btmtabs(
               selectedTab: _selectedTab,
               tabPressed: (num) {
@@ -44,7 +52,11 @@ class _HomepageState extends State<Homepage> {
                 });
               },
             ),
+
           ],
-        ));
+        )
+
+    );
   }
 }
+

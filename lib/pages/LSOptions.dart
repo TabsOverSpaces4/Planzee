@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:planzee/animation/try_fade.dart';
 
+
 class LSOptions extends StatefulWidget {
 
 
@@ -111,6 +112,7 @@ class _LSOptionsState extends State<LSOptions> {
                             )),
                       ),
                     ),
+
                   ],
                 ),
               )
