@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:planzee/pages/LSOptions.dart';
-import 'package:planzee/pages/profile.dart';
+import 'package:planzee/pages/eventDashboard.dart';
 
 class Landingpage extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -34,7 +34,7 @@ class Landingpage extends StatelessWidget {
                 );
               }
 
-//User login cheeck to be here
+//User login check to be here
               if (streamSnapshot.connectionState == ConnectionState.active) {
                 //getting the user
                 User _user = streamSnapshot.data;
@@ -42,7 +42,7 @@ class Landingpage extends StatelessWidget {
                 if (_user == null) {
                   return LSOptions();
                 } else {
-                  return Profile();
+                  return Homepage();
                 }
               }
 

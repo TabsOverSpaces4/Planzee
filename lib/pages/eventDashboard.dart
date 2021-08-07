@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import 'package:planzee/widgets/bottomtabs.dart';
+import 'package:planzee/tabs/hometab.dart';
+
+
+
+
+class Homepage extends StatefulWidget {
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  PageController _tabsPageController;
+  int _selectedTab = 0;
+
+
+  @override
+  Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.height;
+    final deviceHorizontal = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
+        body:Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+                child: Expanded(
+                  child: PageView(
+                    controller: _tabsPageController,
+                    onPageChanged: (num) {
+                      setState(() {
+                        _selectedTab = num;
+                      });
+                    },
+                    children: [
+                      HomeTab(),
+                      // Searchtab(),
+                      // Savedtab(),
+                      // Profiletab(),
+                    ],
+                  ),
+                )),
+
+            Btmtabs(
+              selectedTab: _selectedTab,
+              tabPressed: (num) {
+                setState(() {
+                  _tabsPageController.animateToPage(num,
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeOutCubic);
+                });
+              },
+            ),
+
+          ],
+        )
+
+    );
+  }
+}
+
