@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:planzee/pages/LSOptions.dart';
 import 'package:planzee/pages/eventDashboard.dart';
+import 'package:planzee/pages/eventList.dart';
 
 class Landingpage extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -42,7 +43,7 @@ class Landingpage extends StatelessWidget {
                 if (_user == null) {
                   return LSOptions();
                 } else {
-                  return Homepage();
+                  return Profile();
                 }
               }
 
@@ -52,7 +53,6 @@ class Landingpage extends StatelessWidget {
                     child: Center(
                   child: Text(
                     "Authenticating...",
-                    
                   ),
                 )),
               );
@@ -65,7 +65,6 @@ class Landingpage extends StatelessWidget {
               child: Center(
             child: Text(
               "Initializing app",
-             
             ),
           )),
         );

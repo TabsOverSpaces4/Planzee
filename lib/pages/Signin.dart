@@ -11,7 +11,6 @@ class SignIn extends StatefulWidget {
 }
 
 class _LoginpageState extends State<SignIn> {
-
   Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
         context: context,
@@ -31,8 +30,7 @@ class _LoginpageState extends State<SignIn> {
               )
             ],
           );
-        }
-    );
+        });
   }
 
   // Create a new user account
@@ -41,7 +39,7 @@ class _LoginpageState extends State<SignIn> {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _loginEmail, password: _loginPassword);
       return null;
-    } on FirebaseAuthException catch(e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
@@ -63,13 +61,16 @@ class _LoginpageState extends State<SignIn> {
     String _loginFeedback = await _loginAccount();
 
     // If the string is not null, we got error while create account.
-    if(_loginFeedback != null) {
+    if (_loginFeedback != null) {
       _alertDialogBuilder(_loginFeedback);
 
       // Set the form to regular state [not loading].
       setState(() {
         _loginFormLoading = false;
       });
+
+      //Sign in was successful and the user was routed towards the homescreen using pop funciton
+      Navigator.pop(context);
     }
   }
 
@@ -83,7 +84,6 @@ class _LoginpageState extends State<SignIn> {
   // Focus Node for input fields
   FocusNode _passwordFocusNode;
 
-
   @override
   void initState() {
     _passwordFocusNode = FocusNode();
@@ -95,8 +95,6 @@ class _LoginpageState extends State<SignIn> {
     _passwordFocusNode.dispose();
     super.dispose();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -135,17 +133,17 @@ class _LoginpageState extends State<SignIn> {
                         ),
                       ],
                     )),
-                    SizedBox(height: deviceWidth * .09),
+                SizedBox(height: deviceWidth * .09),
                 Container(
                   child: Column(
                     children: [
                       CustomInpt(
                         hintText: "Email..",
                         onChanged: (value) {
-                           _loginEmail = value;
+                          _loginEmail = value;
                         },
                         onSubmitted: (value) {
-                           _passwordFocusNode.requestFocus();
+                          _passwordFocusNode.requestFocus();
                         },
                         textInputAction: TextInputAction.next,
                       ),
@@ -153,21 +151,22 @@ class _LoginpageState extends State<SignIn> {
                       CustomInpt(
                         hintText: "Password..",
                         onChanged: (value) {
-                           _loginPassword = value;
+                          _loginPassword = value;
                         },
                         focusNode: _passwordFocusNode,
                         isPasswordField: true,
                         onSubmitted: (value) {
-                           _submitForm();
+                          _submitForm();
                         },
                       ),
                       SizedBox(height: deviceWidth * .01),
                       Custombtn(
                         text: "Sign In",
                         onPressed: () {
+                          Navigator.pushNamed(context, '/profile');
                           _submitForm();
                         },
-                         isLoading: _loginFormLoading,
+                        isLoading: _loginFormLoading,
                       ),
                       SizedBox(height: deviceWidth * .01),
                       Custombtn(
@@ -182,12 +181,8 @@ class _LoginpageState extends State<SignIn> {
                       ),
                     ],
                   ),
-                 
                 ),
               ])
-            ]
-            )
-            )
-            );
+            ])));
   }
 }

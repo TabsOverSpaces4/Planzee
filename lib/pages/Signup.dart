@@ -47,7 +47,7 @@ class _SignupPageState extends State<SignupPage> {
       setState(() {
         _registerformLoading = false;
       });
-    } else {
+
       //Sign in was successful and the user was routed towards the homescreen using pop funciton
       Navigator.pop(context);
     }
@@ -93,7 +93,6 @@ class _SignupPageState extends State<SignupPage> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.height;
@@ -134,73 +133,72 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(height: deviceWidth * .08),
                 Container(
                     child: Column(
-                    children: [
-                      CustomInpt(
-                        hintText: "Full Name",
-
-                        onChanged: (value) {
-                          //_registerEmail = value;
-                        },
-                        onSubmitted: (value) {
-                          // _passwordFocusNode.requestFocus();
-                        },
-                        textInputAction: TextInputAction.next,
-                      ),
-                      SizedBox(height: deviceWidth * .01),
-                      CustomInpt(
-                        hintText: "Email",
-                        onChanged: (value) {
-                          _registerEmail = value;
-                        },
-                        onSubmitted: (value) {
-                           _passwordFocusNode.requestFocus();
-                        },
-                        textInputAction: TextInputAction.next,
-                      ),
-                      SizedBox(height: deviceWidth * .01),
-                      CustomInpt(
-                        hintText: "Password",
-                        onChanged: (value) {
-                          _registerPassword = value;
-                        },
-                        focusNode: _passwordFocusNode,
-                        isPasswordField: true,
-                        onSubmitted: (value) {
-                          _submitForm();
-                        },
-                      ),
-                      SizedBox(height: deviceWidth * .01),
-                      CustomInpt(
-                        hintText: "Confirm Password",
-                        onChanged: (value) {
-                          _registerPassword = value;
-                        },
-                        focusNode: _passwordFocusNode,
-                        isPasswordField: true,
-                        onSubmitted: (value) {
-                          _submitForm();
-                        },
-                      ),
-                      SizedBox(height: deviceWidth * .01),
-                      Custombtn(
-                        text: "Create Account",
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/profile');
-                           _submitForm();
-                        },
-                         isLoading: _registerformLoading,
-                      ),
-                      SizedBox(height: deviceWidth * .01),
-                      Custombtn(
-                        text: "Already have an account? Sign In",
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/signin');
-                        },
-                        outlineBtn: true,
-                      )
-                    ],
-                  ))
-                ])
+                  children: [
+                    CustomInpt(
+                      hintText: "Full Name",
+                      onChanged: (value) {
+                        //_registerEmail = value;
+                      },
+                      onSubmitted: (value) {
+                        // _passwordFocusNode.requestFocus();
+                      },
+                      textInputAction: TextInputAction.next,
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    CustomInpt(
+                      hintText: "Email",
+                      onChanged: (value) {
+                        _registerEmail = value;
+                      },
+                      onSubmitted: (value) {
+                        _passwordFocusNode.requestFocus();
+                      },
+                      textInputAction: TextInputAction.next,
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    CustomInpt(
+                      hintText: "Password",
+                      onChanged: (value) {
+                        _registerPassword = value;
+                      },
+                      focusNode: _passwordFocusNode,
+                      isPasswordField: true,
+                      onSubmitted: (value) {
+                        _submitForm();
+                      },
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    CustomInpt(
+                      hintText: "Confirm Password",
+                      onChanged: (value) {
+                        _registerPassword = value;
+                      },
+                      focusNode: _passwordFocusNode,
+                      isPasswordField: true,
+                      onSubmitted: (value) {
+                        _submitForm();
+                      },
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    Custombtn(
+                      text: "Create Account",
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/profile');
+                        _submitForm();
+                      },
+                      isLoading: _registerformLoading,
+                    ),
+                    SizedBox(height: deviceWidth * .01),
+                    Custombtn(
+                      text: "Already have an account? Sign In",
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/signin');
+                      },
+                      outlineBtn: true,
+                    )
+                  ],
+                ))
+              ])
             ])));
   }
 }
