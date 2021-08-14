@@ -71,6 +71,8 @@ class _LoginpageState extends State<SignIn> {
 
       //Sign in was successful and the user was routed towards the homescreen using pop funciton
       Navigator.pop(context);
+    } else {
+      Navigator.pushNamed(context, '/profile');
     }
   }
 
@@ -163,7 +165,6 @@ class _LoginpageState extends State<SignIn> {
                       Custombtn(
                         text: "Sign In",
                         onPressed: () {
-                          Navigator.pushNamed(context, '/profile');
                           _submitForm();
                         },
                         isLoading: _loginFormLoading,
