@@ -8,6 +8,7 @@ import 'package:planzee/pages/createEvent.dart';
 import 'package:planzee/pages/landingpage.dart';
 import 'package:planzee/pages/loading.dart';
 import 'package:planzee/pages/eventList.dart';
+import 'package:planzee/pages/budgetTracker.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -23,10 +24,12 @@ void main() => runApp(MaterialApp(
         '/info': (context) => Info(),
         '/home': (context) => Homepage(),
         '/about': (context) => About(),
+        '/budgettracker' : (context) => BudgetHome()
       },
       theme: ThemeData(
         primaryColor: Color(0xFF10676a),
         accentColor: Color(0xFFE9F2F2),
+
       )
 
     )

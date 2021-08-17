@@ -21,10 +21,21 @@ class _HomepageState extends State<Homepage> {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.black,
       body:Column(
         mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            padding: EdgeInsets.all(50),
+            child: Text(
+              'Dashboard',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 35,
+            ),
+            ),
+          ),
           Container(
             height: deviceHeight * .75,
             decoration: BoxDecoration(
@@ -40,7 +51,7 @@ class _HomepageState extends State<Homepage> {
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .15,
+                  height: deviceHeight * .11,
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)
@@ -50,15 +61,17 @@ class _HomepageState extends State<Homepage> {
                         "Event Details",
                         style: TextStyle(
                           fontSize: 25,
-                          color: Theme.of(context).primaryColor
+                          color: Colors.black
                         ),
                       ),
                     ),
+
                   ),
+
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .15,
+                  height: deviceHeight * .11,
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)
@@ -68,7 +81,7 @@ class _HomepageState extends State<Homepage> {
                         "Task Assignment",
                         style: TextStyle(
                             fontSize: 25,
-                            color: Theme.of(context).primaryColor
+                            color: Colors.black
                         ),
                       ),
                     ),
@@ -76,7 +89,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .15,
+                  height: deviceHeight * .11,
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)
@@ -86,7 +99,7 @@ class _HomepageState extends State<Homepage> {
                         "Attendance",
                         style: TextStyle(
                             fontSize: 25,
-                            color: Theme.of(context).primaryColor
+                            color: Colors.black
                         ),
                       ),
                     ),
@@ -94,7 +107,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .15,
+                  height: deviceHeight * .11,
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)
@@ -104,7 +117,30 @@ class _HomepageState extends State<Homepage> {
                         "Certificate Generator",
                         style: TextStyle(
                             fontSize: 25,
-                            color: Theme.of(context).primaryColor
+                            color: Colors.black
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/budgettracker');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                    height: deviceHeight * .11,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Budget Tracker",
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.black
+                          ),
                         ),
                       ),
                     ),
@@ -112,25 +148,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .15,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Budget Tracker",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Theme.of(context).primaryColor
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .15,
+                  height: deviceHeight * .11,
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)
@@ -140,7 +158,7 @@ class _HomepageState extends State<Homepage> {
                         "Itenerary",
                         style: TextStyle(
                             fontSize: 25,
-                            color: Theme.of(context).primaryColor
+                            color: Colors.black
                         ),
                       ),
                     ),
@@ -148,7 +166,9 @@ class _HomepageState extends State<Homepage> {
                 )
               ],
             ),
+
           ),
+
 
         ],
       ),
