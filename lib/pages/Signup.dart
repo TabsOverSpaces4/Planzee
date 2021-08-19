@@ -50,6 +50,8 @@ class _SignupPageState extends State<SignupPage> {
 
       //Sign in was successful and the user was routed towards the homescreen using pop funciton
       Navigator.pop(context);
+    } else {
+      Navigator.pushNamed(context, '/profile');
     }
   }
 
@@ -170,20 +172,12 @@ class _SignupPageState extends State<SignupPage> {
                     SizedBox(height: deviceWidth * .01),
                     CustomInpt(
                       hintText: "Confirm Password",
-                      onChanged: (value) {
-                        _registerPassword = value;
-                      },
-                      focusNode: _passwordFocusNode,
                       isPasswordField: true,
-                      onSubmitted: (value) {
-                        _submitForm();
-                      },
                     ),
                     SizedBox(height: deviceWidth * .01),
                     Custombtn(
                       text: "Create Account",
                       onPressed: () {
-                        Navigator.pushNamed(context, '/profile');
                         _submitForm();
                       },
                       isLoading: _registerformLoading,
