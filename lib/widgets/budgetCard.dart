@@ -11,7 +11,7 @@ class BudgetCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 4 , horizontal: 16),
       child: Card(
-          color: Colors.black,
+          color: Color(0xFF10676a),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12)
           ),
