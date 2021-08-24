@@ -153,8 +153,7 @@ class _BudgetHomeState extends State<BudgetHome> {
             ),
           ),
           MaterialButton(
-            onPressed: () {
-              Navigator.pushNamed(context, 'addbudget');
+            onPressed: () {Navigator.pushNamed(context, '/addbudget');
             },
             child: Icon(Icons.add , size: 30, color: Colors.white),
             color: Theme.of(context).primaryColor,
