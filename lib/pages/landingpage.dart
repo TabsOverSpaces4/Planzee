@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:planzee/pages/LSOptions.dart';
-import 'package:planzee/pages/eventDashboard.dart';
 import 'package:planzee/pages/eventList.dart';
 
 class Landingpage extends StatelessWidget {
@@ -49,6 +48,7 @@ class Landingpage extends StatelessWidget {
 
               //Checking the auth state
               return Scaffold(
+                backgroundColor: Colors.blueGrey,
                 body: Container(
                     child: Center(
                   child: Text(

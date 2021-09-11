@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planzee/features/taskmanager.dart';
 import 'package:planzee/pages/LSOptions.dart';
 import 'package:planzee/pages/Signin.dart';
 import 'package:planzee/pages/Signup.dart';
@@ -23,6 +24,7 @@ void main() => runApp(MaterialApp(
         '/info': (context) => Info(),
         '/home': (context) => Homepage(),
         '/about': (context) => About(),
+        '/taskpage': (context) => TMPage(),
       },
       theme: ThemeData(
         primaryColor: Color(0xFF10676a),

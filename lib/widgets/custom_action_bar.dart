@@ -24,7 +24,7 @@ class CustomActionBar extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: _hasBackground
               ? LinearGradient(
-                  colors: [Colors.white, Colors.white.withOpacity(0.0)],
+                  colors: [Color(0xFFE9F2F2), Color(0xFFE9F2F2)],
                   begin: Alignment(0, 0),
                   end: Alignment(0, 1))
               : null),
@@ -74,7 +74,7 @@ class CustomActionBar extends StatelessWidget {
                 width: 40.0,
                 height: 40.0,
                 decoration: BoxDecoration(
-                    color: Colors.purple[200],
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(8.0)),
                 alignment: Alignment.center,
                 child: Icon(
