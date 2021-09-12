@@ -14,6 +14,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "bottom_sheet_expandable_bar",
+      "rootUri": "file:///home/harsh/Documents/Devlopment/flutter/.pub-cache/hosted/pub.dartlang.org/bottom_sheet_expandable_bar-0.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "characters",
       "rootUri": "file:///home/harsh/Documents/Devlopment/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0",
       "packageUri": "lib/",
@@ -58,6 +64,12 @@
     {
       "name": "cupertino_icons",
       "rootUri": "file:///home/harsh/Documents/Devlopment/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "expansion_widget",
+      "rootUri": "file:///home/harsh/Documents/Devlopment/flutter/.pub-cache/hosted/pub.dartlang.org/expansion_widget-0.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -260,7 +272,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-08-10T15:20:29.841708Z",
+  "generated": "2021-08-20T08:41:52.530570Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
