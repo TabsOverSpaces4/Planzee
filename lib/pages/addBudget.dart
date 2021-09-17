@@ -28,7 +28,8 @@ class _AddBudgetState extends State<AddBudget> {
             ),
           ),
           Container(
-            height: deviceHeight * .804,
+            //height: deviceHeight * .804,
+            height: deviceHeight * .8,
             decoration: BoxDecoration(
               color: Theme.of(context).accentColor,
               borderRadius: BorderRadius.only(
@@ -46,15 +47,27 @@ class _AddBudgetState extends State<AddBudget> {
                 children: [
                   TextFormField(
                       decoration: InputDecoration(
-                      labelText: "Event Name",
+                      labelText: "Transaction Title",
                       labelStyle: TextStyle(
                       color: Theme.of(context).primaryColor,
                       fontSize: 20
                       ),
                       hintText: "",
                       hintStyle: TextStyle(color: Theme.of(context).primaryColor),
-                      suffixIcon: Icon(Icons.note),
+                      //suffixIcon: Icon(Icons.),
                       ),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Description",
+                      labelStyle: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 20
+                      ),
+                      hintText: "",
+                      hintStyle: TextStyle(color: Theme.of(context).primaryColor),
+                      //suffixIcon: Icon(Icons.),
+                    ),
                   )
                 ],
               ),
