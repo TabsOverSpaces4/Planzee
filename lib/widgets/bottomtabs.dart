@@ -1,4 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:bottom_sheet_expandable_bar/bottom_sheet_bar_icon.dart';
+import 'package:bottom_sheet_expandable_bar/bottom_sheet_expandable_bar.dart';
 import 'package:flutter/material.dart';
 
 class Btmtabs extends StatefulWidget {
@@ -18,81 +19,79 @@ class _BtmtabsState extends State<Btmtabs> {
     _selectedTab = widget.selectedTab ?? 0;
     return Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Theme.of(context).primaryColor,
-            //     spreadRadius: 1.0,
-            //     blurRadius: 45.0,
-            //   )
-            // ]
+            color: Theme.of(context).accentColor,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BtmtabBtn(
-              imagePath: "lib/assets/images/tab_home.png",
-              selected: _selectedTab == 0 ? true : false,
-              onPressed: () {
-                widget.tabPressed(0);
-              },
-            ),
-            BtmtabBtn(
-              imagePath: "lib/assets/images/tab_search.png",
-              selected: _selectedTab == 1 ? true : false,
-              onPressed: () {
-                widget.tabPressed(1);
-              },
-            ),
-            BtmtabBtn(
-              imagePath: "lib/assets/images/tab_saved.png",
-              selected: _selectedTab == 2 ? true : false,
-              onPressed: () {
-                widget.tabPressed(2);
-              },
-            ),
-            BtmtabBtn(
-              imagePath: "lib/assets/images/tab_logout.png",
-              selected: _selectedTab == 3 ? true : false,
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-            ),
-          ],
-        ));
+        child: BottomBarSheet(
+          buttonPosition: ButtonBottomBarPosition.center,
+          innerChild: Center(child: Text('All other things'),),
+          currentIndex: _selectedTab,
+          curve: Curves.bounceIn,
+          backgroundBarColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).accentColor,
+  children: [
+    BottomSheetBarIcon(
+      icon: Icon(Icons.home, color: Colors.white),
+      color: Theme.of(context).primaryColor,
+      onTap: (){
+              widget.tabPressed(0);
+            },
+    ),
+    BottomSheetBarIcon(
+      icon: Icon(Icons.person, color: Colors.white),
+      color: Theme.of(context).primaryColor,
+      onTap: (){
+              widget.tabPressed(1);
+            },
+    ),
+    BottomSheetBarIcon(
+      icon: Icon(Icons.edit, color: Colors.white),
+      color: Theme.of(context).primaryColor,
+      onTap: (){
+              widget.tabPressed(2);
+            },
+    ),
+    BottomSheetBarIcon(
+      icon: Icon(Icons.star, color: Colors.white,),
+      color: Theme.of(context).primaryColor,
+      onTap: (){
+              widget.tabPressed(3);
+            },
+    ),
+  ],
+),);
   }
 }
 
-class BtmtabBtn extends StatelessWidget {
-  final String imagePath;
-  final bool selected;
-  final Function onPressed;
-  BtmtabBtn({this.imagePath, this.selected, this.onPressed});
+// class BtmtabBtn extends StatelessWidget {
+//   final String imagePath;
+//   final bool selected;
+//   final Function onPressed;
+//   BtmtabBtn({this.imagePath, this.selected, this.onPressed});
 
-  @override
-  Widget build(BuildContext context) {
-    bool _selected = selected ?? false;
+//   @override
+//   Widget build(BuildContext context) {
+//     bool _selected = selected ?? false;
 
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          vertical: 28.0,
-          horizontal: 24.0,
-        ),
-        decoration: BoxDecoration(
-            border: Border(
-                top: BorderSide(
-          color: _selected ? Theme.of(context).accentColor : Colors.transparent,
-          width: 2.0,
-        ))),
-        child: Image(
-          image: AssetImage(imagePath ?? "lib/Assets/images/tab_home.png"),
-          width: 26.0,
-          height: 26.0,
-          color: _selected ? Colors.pink : Colors.white,
-        ),
-      ),
-    );
-  }
-}
+//     return GestureDetector(
+//       onTap: onPressed,
+//       child: Container(
+//         padding: EdgeInsets.symmetric(
+//           vertical: 28.0,
+//           horizontal: 24.0,
+//         ),
+//         decoration: BoxDecoration(
+//             border: Border(
+//                 top: BorderSide(
+//           color: _selected ? Theme.of(context).accentColor : Colors.transparent,
+//           width: 2.0,
+//         ))),
+//         child: Image(
+//           image: AssetImage(imagePath ?? "lib/Assets/images/tab_home.png"),
+//           width: 26.0,
+//           height: 26.0,
+//           color: _selected ? Colors.pink : Colors.white,
+//         ),
+//       ),
+//     );
+//   }
+// }

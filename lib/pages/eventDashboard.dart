@@ -69,19 +69,24 @@ class _HomepageState extends State<Homepage> {
                   ),
 
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                  height: deviceHeight * .11,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Task Assignment",
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.black
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/taskmanager');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                    height: deviceHeight * .11,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Task Assignment",
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.black
+                          ),
                         ),
                       ),
                     ),
