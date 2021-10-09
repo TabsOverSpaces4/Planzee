@@ -46,7 +46,6 @@ class _HomepageState extends State<Homepage> {
 
               ),
             ),
-
             child: ListView(
               children: [
                 Container(
@@ -60,7 +59,7 @@ class _HomepageState extends State<Homepage> {
                       child: Text(
                         "Event Details",
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           color: Colors.black
                         ),
                       ),
@@ -84,7 +83,7 @@ class _HomepageState extends State<Homepage> {
                         child: Text(
                           "Task Assignment",
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 20,
                               color: Colors.black
                           ),
                         ),
@@ -103,7 +102,7 @@ class _HomepageState extends State<Homepage> {
                       child: Text(
                         "Attendance",
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             color: Colors.black
                         ),
                       ),
@@ -121,7 +120,7 @@ class _HomepageState extends State<Homepage> {
                       child: Text(
                         "Certificate Generator",
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             color: Colors.black
                         ),
                       ),
@@ -143,7 +142,7 @@ class _HomepageState extends State<Homepage> {
                         child: Text(
                           "Budget Tracker",
                           style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 20,
                               color: Colors.black
                           ),
                         ),
@@ -162,7 +161,7 @@ class _HomepageState extends State<Homepage> {
                       child: Text(
                         "Itenerary",
                         style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             color: Colors.black
                         ),
                       ),

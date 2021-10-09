@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:planzee/pages/budgetDetail.dart';
 import 'package:planzee/widgets/budgetCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class BudgetHome extends StatefulWidget {
 }
 
 class _BudgetHomeState extends State<BudgetHome> {
+  String budgetTitle ;
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -24,13 +26,13 @@ class _BudgetHomeState extends State<BudgetHome> {
         title: Text(
             'Budget Tracker',
           style: TextStyle(
-            color: Colors.black
+            color: Colors.white
           ),
         ),
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.white, //change your color here
         ),
-        backgroundColor: Colors.grey[100],
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +114,10 @@ class _BudgetHomeState extends State<BudgetHome> {
                           isAdded: true,
                         ),
                       onTap: () {
-                        Navigator.pushNamed(context, '/budgetdetail');
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => BudgetDetail(budgetTitle: 'Sponsorship' ),
+                        ));
+                       // Navigator.pushNamed(context, '/budgetdetail');
                       },
                     ),
                     BudgetCard(

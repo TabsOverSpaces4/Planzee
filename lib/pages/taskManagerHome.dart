@@ -16,16 +16,23 @@ class _taskManagerState extends State<taskManager> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).accentColor,
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Theme.of(context).accentColor,
-        title: Row(
-          children: [],
+        centerTitle:true,
+        title: Text(
+          'Task Assignment',
+          style: TextStyle(
+              color: Colors.white
+          ),
         ),
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,17 +40,17 @@ class _taskManagerState extends State<taskManager> {
             // CustomActionBar(
             //   hasBackArrow: true,
             //   title: "Task Manager",),
-            Text(
-              "Project Name",
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontSize: 26.0,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
+            // Text(
+            //   "Project Name",
+            //   style: TextStyle(
+            //     color: Theme.of(context).primaryColor,
+            //     fontSize: 26.0,
+            //     fontWeight: FontWeight.w600,
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 20.0,
+            // ),
             Material(
               elevation: 10.0,
               borderRadius: BorderRadius.circular(30.0),
@@ -68,7 +75,7 @@ class _taskManagerState extends State<taskManager> {
                 child: Column(
                   children: [
                     TabBar(
-                      indicatorColor: Colors.teal[400],
+                      indicatorColor: Theme.of(context).primaryColor,
                       unselectedLabelColor: Colors.grey[350],
                       labelColor: Theme.of(context).primaryColor,
                       labelPadding: EdgeInsets.symmetric(horizontal: 8.0),
@@ -119,7 +126,7 @@ class _taskManagerState extends State<taskManager> {
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(20)
                                     ),
-                                    color: Theme.of(context).primaryColor,
+                                    color: Colors.white,
                                   ),
 
                                   padding: EdgeInsets.all(20),
