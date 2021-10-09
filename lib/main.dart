@@ -4,11 +4,17 @@ import 'package:planzee/pages/LSOptions.dart';
 import 'package:planzee/pages/Signin.dart';
 import 'package:planzee/pages/Signup.dart';
 import 'package:planzee/pages/about.dart';
+import 'package:planzee/pages/budgetDetail.dart';
+import 'package:planzee/pages/editBudget.dart';
 import 'package:planzee/pages/eventDashboard.dart';
 import 'package:planzee/pages/createEvent.dart';
 import 'package:planzee/pages/landingpage.dart';
 import 'package:planzee/pages/loading.dart';
 import 'package:planzee/pages/eventList.dart';
+import 'package:planzee/pages/budgetTracker.dart';
+import 'package:planzee/pages/addBudget.dart';
+import 'package:planzee/pages/taskManagerHome.dart';
+import 'package:planzee/pages/editBudget.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -25,10 +31,16 @@ void main() => runApp(MaterialApp(
         '/home': (context) => Homepage(),
         '/about': (context) => About(),
         '/taskpage': (context) => TMPage(),
+        '/budgettracker' : (context) => BudgetHome(),
+        '/budgetdetail' : (context) => BudgetDetail(),
+        '/addbudget' : (context) => AddBudget(),
+        '/taskmanager' : (context) => taskManager(),
+        '/editBudget' : (context) => EditBudget(),
       },
       theme: ThemeData(
-        primaryColor: Color(0xFF10676a),
+        primaryColor: Color(0xFF5c6bc0),
         accentColor: Color(0xFFE9F2F2),
+
       )
 
     )

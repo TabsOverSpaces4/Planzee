@@ -19,21 +19,21 @@ class _HomepageState extends State<Homepage> {
       children: [
         Container(
             child: Expanded(
-          child: PageView(
-            controller: _tabsPageController,
-            onPageChanged: (num) {
-              setState(() {
-                _selectedTab = num;
-              });
-            },
-            children: [
-              HomeTab(),
-              // All bottom navbar option tabs here
-              // Searchtab(),
-              // Savedtab(),
-              // Profiletab(),
-            ],
-          ),
+              child: PageView(
+                controller: _tabsPageController,
+                onPageChanged: (num) {
+                  setState(() {
+                    _selectedTab = num;
+                  });
+                },
+                children: [
+                  HomeTab(),
+                  // All bottom navbar option tabs here
+                  // Searchtab(),
+                  // Savedtab(),
+                  // Profiletab(),
+                ],
+              ),
         )),
         Btmtabs(
           selectedTab: _selectedTab,
