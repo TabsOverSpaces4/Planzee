@@ -14,17 +14,16 @@ class _taskManagerState extends State<taskManager> {
     _tabsPageController.dispose();
     super.dispose();
   }
+
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        centerTitle:true,
+        centerTitle: true,
         title: Text(
           'Task Assignment',
-          style: TextStyle(
-              color: Colors.white
-          ),
+          style: TextStyle(color: Colors.white),
         ),
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
@@ -91,102 +90,107 @@ class _taskManagerState extends State<taskManager> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                        height: 20.0
-                    ),
+                    SizedBox(height: 20.0),
                     Container(
                       height: 300.0,
-                      child: TabBarView(children: [
-                        GestureDetector(
-                          //Pre-event tab code
-                            child: ExpansionWidget(
-                                initiallyExpanded: true,
-                                titleBuilder: (double animationValue, _, bool isExpaned, toogleFunction) {
-                                  return InkWell(
-                                      onTap: () => toogleFunction(animated: true),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(8),
-                                        child: Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          children: [
-                                            Expanded(child: Text('Your tasks')),
-                                            Transform.rotate(
-                                              angle: math.pi * animationValue / 2,
-                                              child: Icon(Icons.arrow_right, size: 40),
-                                              alignment: Alignment.center,
-                                            )
-                                          ],
-                                        ),
-                                      ));
-                                },
-                                content: Container(
-                                  width: double.infinity,
-                                  //color: Colors.grey.shade100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20)
+                      child: TabBarView(
+                        children: [
+                          GestureDetector(
+                              //Pre-event tab code
+                              child: ExpansionWidget(
+                                  initiallyExpanded: true,
+                                  titleBuilder: (double animationValue, _,
+                                      bool isExpaned, toogleFunction) {
+                                    return InkWell(
+                                        onTap: () =>
+                                            toogleFunction(animated: true),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                  child: Text('Your tasks')),
+                                              Transform.rotate(
+                                                angle: math.pi *
+                                                    animationValue /
+                                                    2,
+                                                child: Icon(Icons.arrow_right,
+                                                    size: 40),
+                                                alignment: Alignment.center,
+                                              )
+                                            ],
+                                          ),
+                                        ));
+                                  },
+                                  content: Container(
+                                    width: double.infinity,
+                                    //color: Colors.grey.shade100,
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                      color: Colors.white,
                                     ),
-                                    color: Colors.white,
-                                  ),
 
-                                  padding: EdgeInsets.all(20),
-                                  child: Card(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        const ListTile(
-                                          leading: Icon(Icons.album),
-                                          title: Text('Task Title'),
-                                          subtitle: Text('Task'),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: <Widget>[
-                                            RaisedButton(
-                                              onPressed: () {},
-                                              color: Theme.of(context).primaryColor,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              child: Text("Edit"),
-                                              textColor: Colors.white,
-                                            ),
-                                            const SizedBox(width: 8),
-                                            RaisedButton(
-                                              onPressed: () {},
-                                              color:Theme.of(context).primaryColor,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(10)),
-                                              child: Text("Mark as Done"),
-                                              textColor: Colors.white,
-                                            ),
-                                            const SizedBox(width: 8),
-                                          ],
-                                        ),
-                                      ],
+                                    padding: EdgeInsets.all(20),
+                                    child: Card(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          const ListTile(
+                                            leading: Icon(Icons.album),
+                                            title: Text('Task Title'),
+                                            subtitle: Text('Task'),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: <Widget>[
+                                              RaisedButton(
+                                                onPressed: () {
+                                                  Navigator.pushNamed(
+                                                      context, '/editTask');
+                                                },
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                child: Text("Edit"),
+                                                textColor: Colors.white,
+                                              ),
+                                              const SizedBox(width: 8),
+                                              RaisedButton(
+                                                onPressed: () {},
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                child: Text("Mark as Done"),
+                                                textColor: Colors.white,
+                                              ),
+                                              const SizedBox(width: 8),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ))
-
-
-
-
-
-                        ),
-                        //During event tab code
-                        Container(
-
-                        ),
-                        Container(
-
-                        )
-
-                      ],),
+                                  ))),
+                          //During event tab code
+                          Container(),
+                          Container()
+                        ],
+                      ),
                     )
-
                   ],
                 ),
               ),
-            )],
+            )
+          ],
         ),
       ),
     );

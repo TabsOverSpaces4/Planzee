@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:planzee/widgets/custom_button.dart';
-import 'package:planzee/widgets/custom_input.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -175,8 +175,8 @@ class Profile extends StatelessWidget {
                       child: Custombtn(
                         text: "Create new Event",
                         onPressed: () {
-                          Navigator.pushNamed(context, '/info');
-                        },
+                          FirebaseAuth.instance.signOut();
+                          },
                       ),
                     )
 

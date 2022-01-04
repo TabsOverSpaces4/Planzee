@@ -34,6 +34,7 @@ class _SignupPageState extends State<SignupPage> {
         });
   }
 
+
   void _submitForm() async {
     // Set the form to loading state
     setState(() {

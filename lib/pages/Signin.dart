@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:html';
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +14,8 @@ class SignIn extends StatefulWidget {
 }
 
 class _LoginpageState extends State<SignIn> {
+  get http => null;
+
   Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
         context: context,
@@ -38,6 +43,20 @@ class _LoginpageState extends State<SignIn> {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _loginEmail, password: _loginPassword);
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      final User user = auth.currentUser;
+      final uid = user.uid;
+
+      // final htresp = await http.post(
+      //   Uri.parse('https://iota-event-manager-api.herokuapp.com/api/v1/users/login'),
+      //   headers: <String, String>{
+      //     'Content-Type': 'application/json; charset=UTF-8',
+      //   },
+      //   body: jsonEncode(<String, String>{
+      //     "firebaseUid": uid,
+      //   }),
+      // );
+      // print(htresp);
       return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -197,7 +216,7 @@ class _LoginpageState extends State<SignIn> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       resizeToAvoidBottomInset: false,
-      body:Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -205,12 +224,12 @@ class _LoginpageState extends State<SignIn> {
             padding: EdgeInsets.all(50),
             child: Column(
               children: [
-               // Container(
-               //   height: 70,
-               //   child: Image(
-               //     image: AssetImage("lib/assets/images/logo.png"),
-               //   ),
-               // ),
+                // Container(
+                //   height: 70,
+                //   child: Image(
+                //     image: AssetImage("lib/assets/images/logo.png"),
+                //   ),
+                // ),
                 Container(
                   margin: EdgeInsets.only(top: deviceWidth * .08),
                   height: deviceWidth * .17,
@@ -237,63 +256,58 @@ class _LoginpageState extends State<SignIn> {
               ],
             ),
           ),
-
           Container(
             //height: deviceHeight * .804,
-              height: deviceHeight * .65,
-              decoration: BoxDecoration(
-                color: Theme.of(context).accentColor,
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(50),
-                    topLeft: Radius.circular(50)
+            height: deviceHeight * .65,
+            decoration: BoxDecoration(
+              color: Theme.of(context).accentColor,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(50), topLeft: Radius.circular(50)),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomInpt(
+                  hintText: "Email..",
+                  onChanged: (value) {
+                    _loginEmail = value;
+                  },
+                  onSubmitted: (value) {
+                    _passwordFocusNode.requestFocus();
+                  },
+                  textInputAction: TextInputAction.next,
                 ),
-              ),
-              child:  Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomInpt(
-                    hintText: "Email..",
-                    onChanged: (value) {
-                      _loginEmail = value;
-                    },
-                    onSubmitted: (value) {
-                      _passwordFocusNode.requestFocus();
-                    },
-                    textInputAction: TextInputAction.next,
-                  ),
-                  SizedBox(height: deviceWidth * .01),
-                  CustomInpt(
-                    hintText: "Password..",
-                    onChanged: (value) {
-                      _loginPassword = value;
-                    },
-                    focusNode: _passwordFocusNode,
-                    isPasswordField: true,
-                    onSubmitted: (value) {
-                      _submitForm();
-                    },
-                  ),
-                  SizedBox(height: deviceWidth * .01),
-                  Custombtn(
-                    text: "Sign In",
-                    onPressed: () {
-                      _submitForm();
-                    },
-                    isLoading: _loginFormLoading,
-                  ),
-                  SizedBox(height: deviceWidth * .01),
-                  Custombtn(
-                    text: "Don't have an account? SignUp here",
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignupPage()));
-                    },
-                    outlineBtn: true,
-                  ),
-                ],
-              ),
+                SizedBox(height: deviceWidth * .01),
+                CustomInpt(
+                  hintText: "Password..",
+                  onChanged: (value) {
+                    _loginPassword = value;
+                  },
+                  focusNode: _passwordFocusNode,
+                  isPasswordField: true,
+                  onSubmitted: (value) {
+                    _submitForm();
+                  },
+                ),
+                SizedBox(height: deviceWidth * .01),
+                Custombtn(
+                  text: "Sign In",
+                  onPressed: () {
+                    _submitForm();
+                  },
+                  isLoading: _loginFormLoading,
+                ),
+                SizedBox(height: deviceWidth * .01),
+                Custombtn(
+                  text: "Don't have an account? SignUp here",
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignupPage()));
+                  },
+                  outlineBtn: true,
+                ),
+              ],
+            ),
           ),
         ],
       ),

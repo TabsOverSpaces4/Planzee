@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planzee/features/taskmanager.dart';
+import 'package:planzee/pages/EditTasks.dart';
 import 'package:planzee/pages/LSOptions.dart';
 import 'package:planzee/pages/Signin.dart';
 import 'package:planzee/pages/Signup.dart';
@@ -14,7 +15,6 @@ import 'package:planzee/pages/eventList.dart';
 import 'package:planzee/pages/budgetTracker.dart';
 import 'package:planzee/pages/addBudget.dart';
 import 'package:planzee/pages/taskManagerHome.dart';
-import 'package:planzee/pages/editBudget.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -32,10 +32,11 @@ void main() => runApp(MaterialApp(
         '/about': (context) => About(),
         '/taskpage': (context) => TMPage(),
         '/budgettracker' : (context) => BudgetHome(),
-        '/budgetdetail' : (context) => BudgetDetail(),
+        '/budgetdetail' : (context) => BudgetDetail(budgetTitle: '',),
         '/addbudget' : (context) => AddBudget(),
         '/taskmanager' : (context) => taskManager(),
         '/editBudget' : (context) => EditBudget(),
+        '/editTask' : (context) => EditTask(),
       },
       theme: ThemeData(
         primaryColor: Color(0xFF5c6bc0),
