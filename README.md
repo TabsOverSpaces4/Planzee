@@ -1,16 +1,51 @@
-# planzee
 
-A new Flutter project.
+# Planzee
 
-## Getting Started
+Planzee (Formerly planify): A collaborative project from IoTA to aid the different challenges faces by event handlers to host an event. 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech Stack
+
+**Client:** Flutter
+
+**Auth:** Firebase
+
+**Server:** MongoDB
+
+
+## Acknowledgements
+
+- [Check it out](https://iota-event-manager-api.herokuapp.com/#/landingpage)
+ - [Pub dev](https://pub.dev/)
+ - [Documentation](https://docs.flutter.dev/)
+ - [Image Collection](https://stock.adobe.com/in?ef_id=Cj0KCQiAi9mPBhCJARIsAHchl1y9UyaVlEr34j-IFNZhesz9x320HC3jufYPAH8kcl49l66cZ375dg8aApMJEALw_wcB:G:s&s_kwcid=AL!3085!3!456723993344!e!!g!!adobe%20stocks!6828711555!74928189810&as_channel=sem&as_campclass=brand&as_campaign=IN|CPRO|Stock|PURCH|AS_Brand_Exact|GG||&as_source=google&mv=search&as_camptype=acquisition&sdid=599F8S6N)
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  git clone https://github.com/TabsOverSpaces4/Planzee.git
+  cd /project-directory
+  flutter pub get
+  flutter run
+```
+    
+## Features
+
+- Budget/expense tracker
+- Virtual event itinerary
+- Event-member tracker
+- Control management
+- Attendance Control 
+- Cross Platform
+
+
+## Support
+
+For support, email at harshworks2401@gmail.com
+
+
